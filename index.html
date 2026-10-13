@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Cornelius Adyatma Satya - Data Analyst, AI Engineer, Machine Learning, Quality Assurance, UI/UX, Web Development, Software Engineer">
+    <title>Cornelius Adyatma Satya — Portfolio</title>
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('portfolio-theme') === 'dark') {
+                    document.documentElement.classList.add('is-dark');
+                }
+            } catch (error) {
+                return;
+            }
+        }());
+    </script>
+    <link rel="stylesheet" href="css/style.css?v=20261013-5">
+</head>
+
+<body>
+
+    <button class="site-theme-toggle" type="button" aria-pressed="false">
+        <span class="site-theme-toggle__label">LIGHT MODE</span>
+        <span class="site-theme-toggle__icon" aria-hidden="true">◐</span>
+    </button>
+
+    <!-- ============================================================
+         HERO SECTION
+    ============================================================ -->
+    <section class="hero" id="home">
+
+        <div class="hero-bg"></div>
+
+        <!-- CORNELIUS — animate-1 -->
+        <h1 class="hero-title animate-cornelius">CORNELIUS</h1>
+
+        <!-- Foto hero — animate-2 -->
+        <img class="hero-image animate-photo" src="assets/images/fotosatya.png" alt="Cornelius Adyatma Satya">
+
+        <!-- Role text kiri atas — animate-3a -->
+        <span class="role role-ml animate-role-left">MACHINE LEARNING</span>
+        <span class="role role-ai animate-role-left">AI ENGINEER</span>
+
+        <!-- Role text kanan atas — animate-3b -->
+        <span class="role role-quality animate-role-right">QUALITY</span>
+        <span class="role role-assurance animate-role-right">ASSURANCE</span>
+
+        <!-- Role text kiri bawah — animate-3a -->
+        <span class="role role-data animate-role-left">DATA ANALYST</span>
+        <span class="role role-web animate-role-left">WEB DEVELOPMENT</span>
+        <span class="role role-uiux animate-role-left">UI/UX</span>
+
+        <!-- Role text kanan bawah — animate-3b -->
+        <span class="role role-software animate-role-right">SOFTWARE</span>
+        <span class="role role-engineer animate-role-right">ENGINEER</span>
+
+        <!-- Nama — animate-4 -->
+        <div class="hero-name adyatma animate-name">ADYATMA</div>
+        <div class="hero-name satya animate-name">SATYA</div>
+
+        <!-- Tombol PORTOFOLIO — animate-5 -->
+        <a class="portfolio-button animate-button" href="#about" aria-label="Lihat bagian About Me">ABOUT ME</a>
+
+    </section>
+
+
+    <section class="about-section" id="about" aria-labelledby="about-title">
+        <div class="about-section__header">
+            <p class="about-eyebrow">01 / PROFILE</p>
+            <h2 id="about-title">ABOUT ME</h2>
+        </div>
+
+        <div class="about-profile">
+            <div class="about-profile__image-wrap">
+                <img class="about-profile__image" src="assets/images/fotosatya.png"
+                    alt="Cornelius Adyatma Satya Gunawan">
+            </div>
+            <div class="about-profile__content">
+                <p class="about-eyebrow">HELLO, I AM</p>
+                <h3>Cornelius Adyatma<br>Satya Gunawan</h3>
+                <p class="about-profile__summary">Saya merupakan lulusan S1 Informatika dari Universitas Sanata Dharma
+                    dengan minat pada Data Analytics dan Technology. Saya memiliki pengalaman mengerjakan proyek
+                    pengolahan dan analisis data, pengelolaan database, serta pengembangan sistem. Saya tertarik untuk
+                    terus mengembangkan kemampuan dalam analisis data, pemecahan masalah, dan pemanfaatan teknologi
+                    untuk menghasilkan solusi yang bermanfaat.</p>
+                <nav class="about-profile__socials" aria-label="Kontak dan media sosial">
+                    <a href="https://www.linkedin.com/in/cornelius-adyatma-satya-gunawan-807984334/"
+                        target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Cornelius Adyatma Satya">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path
+                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.34 18V9.7H5.57V18h2.77ZM6.96 8.57a1.6 1.6 0 1 0-.02-3.2 1.6 1.6 0 0 0 .02 3.2ZM18.43 18v-4.55c0-2.44-1.3-3.58-3.04-3.58-1.4 0-2.03.77-2.38 1.3V9.7h-2.77V18h2.77v-4.11c0-1.08.2-2.13 1.55-2.13 1.33 0 1.35 1.24 1.35 2.2V18h2.52Z" />
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/6281293071794" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp Cornelius Adyatma Satya">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path
+                                d="M12.04 2a9.93 9.93 0 0 0-8.48 15.1L2.2 22l5.02-1.32A9.95 9.95 0 1 0 12.04 2Zm0 18.1a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-2.98.78.8-2.9-.2-.3a8.12 8.12 0 1 1 6.81 3.73Zm4.45-6.08c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.4-1.33-1.64-.14-.24-.02-.37.1-.49.11-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.4h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.31.98 2.47c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.5.57.18 1.09.15 1.5.09.46-.07 1.4-.58 1.6-1.14.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28Z" />
+                        </svg>
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=corneliussatya02@gmail.com"
+                        target="_blank" rel="noopener noreferrer" aria-label="Kirim email ke corneliussatya02@gmail.com">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path
+                                d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-.4 3.1-7.02 5.27a1 1 0 0 1-1.2 0L4.4 7.1A1 1 0 0 1 5.6 5.5l6.4 4.8 6.4-4.8a1 1 0 0 1 1.2 1.6Z" />
+                        </svg>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="about-tabs" role="tablist" aria-label="Informasi profil">
+            <button class="about-tab is-active" type="button" role="tab" id="education-tab"
+                aria-controls="education-panel" aria-selected="true">PENDIDIKAN</button>
+            <button class="about-tab" type="button" role="tab" id="experience-tab" aria-controls="experience-panel"
+                aria-selected="false" tabindex="-1">PENGALAMAN</button>
+            <button class="about-tab" type="button" role="tab" id="organization-tab" aria-controls="organization-panel"
+                aria-selected="false" tabindex="-1">ORGANISASI</button>
+        </div>
+
+        <div class="about-tab-panels">
+            <section class="about-tab-panel about-tab-panel--education" role="tabpanel" id="education-panel"
+                aria-labelledby="education-tab">
+                <div class="about-education-list">
+                    <article class="about-education-entry">
+                        <p class="about-tab-panel__number">01</p>
+                        <div>
+                            <h3>SMA N 1 PRAMBANAN</h3>
+                            <p class="about-education-entry__detail">IPA · 2019–2022</p>
+                        </div>
+                    </article>
+                    <article class="about-education-entry">
+                        <p class="about-tab-panel__number">02</p>
+                        <div>
+                            <h3>UNIVERSITAS SANATA DHARMA</h3>
+                            <p class="about-education-entry__detail">S1 Informatika · 2022–2026</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="about-tab-panel" role="tabpanel" id="experience-panel" aria-labelledby="experience-tab"
+                hidden>
+                <p class="about-tab-panel__number">01</p>
+                <div>
+                    <p class="about-tab-panel__meta">PENGALAMAN</p>
+                    <h3>PENGALAMAN PROFESIONAL</h3>
+                    <p>Detail pengalaman akan ditambahkan di sini.</p>
+                </div>
+            </section>
+
+            <section class="about-tab-panel" role="tabpanel" id="organization-panel" aria-labelledby="organization-tab"
+                hidden>
+                <p class="about-tab-panel__number">01</p>
+                <div>
+                    <p class="about-tab-panel__meta">ORGANISASI</p>
+                    <h3>RIWAYAT ORGANISASI</h3>
+                    <p>Detail organisasi akan ditambahkan di sini.</p>
+                </div>
+            </section>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         PROJECTS SECTION
+    ============================================================ -->
+    <section class="projects" id="projects">
+
+        <!-- Transition header -->
+        <div class="projects-intro">
+            <span class="projects-intro__label">SELECTED</span>
+            <span class="projects-intro__label">WORKS</span>
+            <span class="projects-intro__year">2024 — 2026</span>
+        </div>
+
+        <!-- Section heading -->
+        <div class="projects-heading">
+            <h2 class="projects-heading__title">PROJECTS</h2>
+        </div>
+
+        <!-- ── FEATURED PROJECT ─────────────────────────────── -->
+        <article class="project project--featured">
+            <div class="project__meta">
+                <span class="project__number">01</span>
+                <span class="project__category">DATA ANALYTICS / MACHINE LEARNING</span>
+            </div>
+
+            <div class="project__body">
+                <div class="project__info">
+                    <p class="project__subtitle">K-Means × BIRCH</p>
+                    <h3 class="project__title">Bike Sales<br>Clustering</h3>
+                    <p class="project__desc">
+                        Comparison of K-Means and BIRCH algorithms
+                        for bike sales customer segmentation.
+                    </p>
+                    <a class="project__cta" href="#" aria-label="View Bike Sales Clustering project">
+                        VIEW PROJECT <span class="project__cta-arrow">→</span>
+                    </a>
+                </div>
+
+                <div class="project__preview">
+                    <!-- Ganti src dengan screenshot project saat tersedia -->
+                    <div class="project__img-wrap">
+                        <img src="assets/images/project-01.png" alt="Bike Sales Clustering preview" class="project__img"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project__placeholder" style="display:none;">
+                            <span>PROJECT PREVIEW</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- ── PROJECT LIST ──────────────────────────────────── -->
+        <div class="project-list">
+
+            <!-- 02 -->
+            <article class="project-item">
+                <span class="project-item__number">02</span>
+                <div class="project-item__content">
+                    <h3 class="project-item__title">Tanamin E-Commerce</h3>
+                    <span class="project-item__category">UI/UX DESIGN / WEB DEVELOPMENT</span>
+                </div>
+                <a class="project-item__cta" href="#" aria-label="View Tanamin E-Commerce project">
+                    VIEW <span>→</span>
+                </a>
+            </article>
+
+            <div class="project-list__divider"></div>
+
+            <!-- 03 -->
+            <article class="project-item">
+                <span class="project-item__number">03</span>
+                <div class="project-item__content">
+                    <h3 class="project-item__title">Event Manager</h3>
+                    <span class="project-item__category">SOFTWARE ENGINEERING</span>
+                </div>
+                <a class="project-item__cta" href="#" aria-label="View Event Manager project">
+                    VIEW <span>→</span>
+                </a>
+            </article>
+
+            <div class="project-list__divider"></div>
+
+            <!-- 04 -->
+            <article class="project-item">
+                <span class="project-item__number">04</span>
+                <div class="project-item__content">
+                    <h3 class="project-item__title">BR FOLK</h3>
+                    <span class="project-item__category">BRANDING / UI/UX</span>
+                </div>
+                <a class="project-item__cta" href="#" aria-label="View BR FOLK project">
+                    VIEW <span>→</span>
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
