@@ -37,12 +37,17 @@
 
     function setTheme(theme, toggle) {
         var isDark = theme === 'dark';
+        var sunIcon = toggle.querySelector('.site-theme-toggle__sun');
+        var moonIcon = toggle.querySelector('.site-theme-toggle__moon');
+        var label = isDark ? 'Aktifkan light mode' : 'Aktifkan dark mode';
+
         document.documentElement.classList.toggle('is-dark', isDark);
         document.body.classList.toggle('is-dark', isDark);
         toggle.setAttribute('aria-pressed', String(isDark));
-        toggle.setAttribute('aria-label', isDark ? 'Aktifkan light mode' : 'Aktifkan dark mode');
-        toggle.querySelector('.site-theme-toggle__label').textContent = isDark ? 'DARK MODE' : 'LIGHT MODE';
-        toggle.querySelector('.site-theme-toggle__icon').textContent = isDark ? '\u263C' : '\u25D0';
+        toggle.setAttribute('aria-label', label);
+        toggle.setAttribute('title', label);
+        sunIcon.hidden = !isDark;
+        moonIcon.hidden = isDark;
     }
 
     function initThemeToggle() {

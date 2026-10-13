@@ -2752,3 +2752,224 @@ body.is-dark .projects {
     height: 22px;
     fill: currentColor;
 }
+
+@property --hero-float-y {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+}
+
+.site-theme-toggle {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+    place-items: center;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.site-theme-toggle__icon {
+    display: grid;
+    width: 24px;
+    height: 24px;
+    place-items: center;
+    background: transparent;
+    color: currentColor;
+}
+
+.site-theme-toggle__icon svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+.site-theme-toggle__sun {
+    color: #E62E08;
+    stroke: #E62E08;
+}
+
+.site-theme-toggle__moon {
+    color: #111111;
+    stroke: #111111;
+}
+
+html.is-dark .site-theme-toggle__sun,
+body.is-dark .site-theme-toggle__sun {
+    display: block;
+    color: #E62E08;
+    stroke: #E62E08;
+}
+
+html.is-dark .site-theme-toggle__moon,
+body.is-dark .site-theme-toggle__moon,
+.site-theme-toggle__sun[hidden] {
+    display: none;
+}
+
+.site-theme-toggle__moon:not([hidden]) {
+    display: block;
+}
+
+.about-profile__content {
+    padding-top: clamp(92px, 10vw, 120px);
+    padding-bottom: clamp(96px, 10vw, 120px);
+}
+
+.about-profile {
+    position: relative;
+}
+
+.about-profile__socials {
+    position: absolute;
+    top: auto;
+    right: clamp(24px, 4vw, 48px);
+    bottom: 24px;
+    z-index: 2;
+    margin: 0;
+}
+
+.about-profile__socials a:nth-child(1) {
+    order: 1;
+}
+
+.about-profile__socials a:nth-child(2) {
+    order: 0;
+}
+
+.about-profile__socials a:nth-child(3) {
+    order: 2;
+}
+
+.about-profile__socials a {
+    width: 42px;
+    height: 42px;
+}
+
+.about-profile__socials svg {
+    width: 20px;
+    height: 20px;
+}
+
+.about-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: clamp(28px, 4vw, 44px) 0 18px;
+}
+
+.about-tab {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0.8em 1em;
+    text-align: center;
+}
+
+.hero .hero-title.animate-cornelius,
+.hero .hero-name.animate-name {
+    opacity: 1;
+    color: transparent;
+    background-image: linear-gradient(
+        105deg,
+        var(--accent) 0%,
+        var(--accent) 44%,
+        rgba(255, 255, 255, 0.18) 47%,
+        #ffffff 50%,
+        rgba(255, 255, 255, 0.18) 53%,
+        var(--accent) 56%,
+        var(--accent) 100%
+    );
+    background-position: 100% center;
+    background-size: 280% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: heroTextShimmer 5s ease-in-out infinite;
+}
+
+.hero .hero-image.animate-photo,
+.hero .animate-button {
+    opacity: 1;
+    animation: none;
+    translate: none;
+    transition: none;
+}
+
+@media screen and (min-width: 769px) {
+    .hero .hero-image.animate-photo {
+        right: clamp(0px, 3vw, 48px);
+        left: auto;
+        transform: none;
+    }
+}
+
+@keyframes heroTextShimmer {
+    0%,
+    100% {
+        background-position: 100% center;
+    }
+
+    55% {
+        background-position: 0% center;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .about-profile__content {
+        padding-top: 96px;
+    }
+
+    .about-profile__socials {
+        top: auto;
+        right: 24px;
+        bottom: 22px;
+        gap: 9px;
+    }
+
+    .about-profile__content {
+        padding-bottom: 92px;
+    }
+
+    .about-profile__socials a {
+        width: 38px;
+        height: 38px;
+    }
+
+    .about-tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding-top: 28px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero .hero-title {
+        font-size: clamp(34px, 12vw, 58px);
+        letter-spacing: -0.035em;
+    }
+
+    .site-theme-toggle {
+        width: 44px;
+        height: 44px;
+        min-height: 44px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero .hero-title.animate-cornelius,
+    .hero .hero-name.animate-name {
+        animation: fadeIn 0.3s ease both;
+        opacity: 1;
+        color: var(--accent);
+        background: none;
+        -webkit-text-fill-color: currentColor;
+    }
+}
