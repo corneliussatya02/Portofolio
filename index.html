@@ -8,6 +8,12 @@
       content="Cornelius Adyatma Satya - Data Analyst, AI Engineer, Machine Learning, Quality Assurance, UI/UX, Web Development, Software Engineer"
     />
     <title>Cornelius Adyatma Satya — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <script>
       (function () {
         try {
@@ -19,16 +25,32 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="css/style.css?v=20261013-10" />
+    <link rel="stylesheet" href="css/style.css?v=20261023-2" />
   </head>
 
   <body>
-    <button
-      class="site-theme-toggle"
-      type="button"
-      aria-pressed="false"
-      aria-label="Aktifkan dark mode"
-      title="Aktifkan dark mode"
+    <header class="site-header">
+      <div class="site-header__inner">
+        <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+          <a class="site-nav__link is-active" href="#home" aria-current="location"
+            >HOME</a
+          >
+          <a class="site-nav__link" href="#about">ABOUT</a>
+          <a class="site-nav__link" href="#projects">PROJECTS</a>
+          <span
+            class="site-nav__link site-nav__link--unavailable"
+            aria-disabled="true"
+            title="Contact section is not available yet"
+            >CONTACT</span
+          >
+        </nav>
+        <div class="site-header__actions">
+          <button
+            class="site-theme-toggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="Enable dark mode"
+            title="Enable dark mode"
     >
       <span class="site-theme-toggle__icon" aria-hidden="true">
         <svg
@@ -52,7 +74,21 @@
           ></path>
         </svg>
       </span>
-    </button>
+          </button>
+          <button
+            class="site-menu-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-controls="site-navigation"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
 
     <section class="hero" id="home">
       <div class="hero-bg"></div>
@@ -287,6 +323,134 @@
       </div>
     </section>
 
+    <section class="tech-stack" id="tech-stack" aria-labelledby="tech-stack-title">
+      <div class="tech-stack__stage">
+        <div class="tech-stack__heading">
+          <p class="tech-stack__eyebrow">TOOLS OF THE TRADE</p>
+          <h2 id="tech-stack-title">MY TECH STACK</h2>
+          <p class="tech-stack__subtitle">
+            The tools and technologies I use to build, analyze, and create.
+          </p>
+        </div>
+        <div
+          class="tech-stack__carousel-window"
+          role="region"
+          aria-label="Technology carousel"
+        >
+          <ul class="tech-stack__carousel">
+          <li class="tech-stack__card tech-stack__card--php">
+            <span class="tech-stack__card-name">PHP</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/backend/logoPHP.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--html">
+            <span class="tech-stack__card-name">HTML</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/frontend/logoHTML.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--css">
+            <span class="tech-stack__card-name">CSS</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/frontend/logoCSS.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--python">
+            <span class="tech-stack__card-name">Python</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/backend/logoPython.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--javascript">
+            <span class="tech-stack__card-name">Java<wbr>Script</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/frontend/logoJS.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--laravel">
+            <span class="tech-stack__card-name">Laravel</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/backend/logoLaravel.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--mysql">
+            <span class="tech-stack__card-name">MySQL</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/backend/logoMySQL.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--streamlit">
+            <span class="tech-stack__card-name">Stream<wbr>lit</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/development-tools/logoStreamlit.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--flask">
+            <span class="tech-stack__card-name">Flask</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/backend/logoFlask.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--figma">
+            <span class="tech-stack__card-name">Figma</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/ui-ux-design/logoFigma.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--git">
+            <span class="tech-stack__card-name">Git</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/development-tools/logoGit.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--github">
+            <span class="tech-stack__card-name">GitHub</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/development-tools/logoGitHub.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--excel">
+            <span class="tech-stack__card-name">Excel</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/productivity-office/logoExcel.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--pandas">
+            <span class="tech-stack__card-name">Pandas</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/development-tools/logoPandas.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--power-bi">
+            <span class="tech-stack__card-name">Power BI</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/data-analysis/logoBI.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--word">
+            <span class="tech-stack__card-name">Word</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/productivity-office/logoWord.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--colab">
+            <span class="tech-stack__card-name">Google Colab</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/data-analysis/logoColab.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--react">
+            <span class="tech-stack__card-name">React</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/frontend/logoReact.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--blade">
+            <span class="tech-stack__card-name">Blade</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/development-tools/logoBlade.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--powerpoint">
+            <span class="tech-stack__card-name">Power<wbr>Point</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/productivity-office/logoPowerPoint.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--workspace">
+            <span class="tech-stack__card-name">Google<wbr> Work<wbr>space</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/productivity-office/logoWorkspace.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--canva">
+            <span class="tech-stack__card-name">Canva</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/ui-ux-design/logoCanva.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--bootstrap">
+            <span class="tech-stack__card-name">Boot<wbr>strap</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/frontend/logoBootstrap.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--tailwind">
+            <span class="tech-stack__card-name">Tailwind CSS</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/frontend/logoTailwind.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--alpine">
+            <span class="tech-stack__card-name">Alpine<wbr>.js</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/frontend/logoAlpine.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--tableau">
+            <span class="tech-stack__card-name">Tableau</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/data-analysis/logoTableau.png" alt="" />
+          </li>
+          <li class="tech-stack__card tech-stack__card--unity">
+            <span class="tech-stack__card-name">Unity</span>
+            <img class="tech-stack__card-logo" src="assets/images/techstack/development-tools/logoUnity.png" alt="" />
+          </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section class="projects" id="projects">
       <!-- Transition header -->
       <div class="projects-intro">
@@ -403,6 +567,6 @@
       </div>
     </section>
 
-    <script src="js/main.js?v=20261013-2"></script>
+    <script src="js/main.js?v=20261023-2"></script>
   </body>
 </html>
