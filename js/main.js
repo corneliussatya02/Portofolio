@@ -319,6 +319,37 @@
     });
   }
 
+  function initDocumentViewer() {
+    var viewer = document.querySelector(".document-viewer");
+    var viewerTitle = document.querySelector("#document-viewer-title");
+    var viewerImage = document.querySelector(".document-viewer__image");
+    var closeButton = document.querySelector(".document-viewer__close");
+
+    if (!viewer || !viewerTitle || !viewerImage || !closeButton) return;
+
+    document.addEventListener("click", function (event) {
+      var trigger = event.target.closest("[data-document-src]");
+      if (!trigger) return;
+
+      var imageSource = trigger.getAttribute("data-document-src");
+      if (!imageSource) return;
+
+      var title = trigger.getAttribute("data-document-title") || "Dokumen";
+      viewerTitle.textContent = title;
+      viewerImage.src = imageSource;
+      viewerImage.alt = title;
+      viewer.showModal();
+    });
+
+    closeButton.addEventListener("click", function () {
+      viewer.close();
+    });
+
+    viewer.addEventListener("click", function (event) {
+      if (event.target === viewer) viewer.close();
+    });
+  }
+
   function initProfileTilt() {
     var profile = document.querySelector(".about-profile");
     var animationFrame;
@@ -663,6 +694,7 @@
     initSmoothScroll();
     initThemeToggle();
     initTabs();
+    initDocumentViewer();
     initProfileTilt();
     initTechStackCarousel();
     initScrollProgress();

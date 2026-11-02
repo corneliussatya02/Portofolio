@@ -1219,13 +1219,15 @@ body.is-dark .site-theme-toggle {
 }
 
 .about-profile h3 {
-  font-size: clamp(40px, 5.4vw, 72px);
-  line-height: 0.88;
+  font-size: clamp(36px, 4vw, 58px);
+  line-height: 0.94;
 }
 
 .about-profile__summary {
   margin-top: 2rem;
   font-size: clamp(15px, 1.2vw, 18px);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .about-tabs,
@@ -2531,13 +2533,15 @@ body.is-dark .project__img-wrap {
 }
 
 .about-profile h3 {
-  font-size: clamp(40px, 5.4vw, 72px);
-  line-height: 0.88;
+  font-size: clamp(36px, 4vw, 58px);
+  line-height: 0.94;
 }
 
 .about-profile__summary {
   margin-top: 2rem;
   font-size: clamp(15px, 1.2vw, 18px);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .about-tabs,
@@ -2874,12 +2878,48 @@ body.is-dark .site-theme-toggle__moon,
 }
 
 .about-profile__content {
-  padding-top: clamp(92px, 10vw, 120px);
-  padding-bottom: clamp(96px, 10vw, 120px);
+  justify-content: flex-start;
+  padding-top: clamp(48px, 4vw, 64px);
+  padding-bottom: clamp(72px, 6vw, 80px);
 }
 
 .about-profile {
   position: relative;
+  max-width: 1280px;
+  background: linear-gradient(
+    120deg,
+    #ffd580 0%,
+    #fce5ad 35%,
+    #fffaf0 70%,
+    #f8f3e7 100%
+  );
+}
+
+@media screen and (min-width: 721px) {
+  .about-profile {
+    grid-template-columns: minmax(300px, 0.75fr) minmax(0, 1.25fr);
+  }
+}
+
+.about-profile h3 {
+  color: #000000;
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 0.96;
+}
+
+@media screen and (min-width: 1200px) {
+  .about-profile h3 {
+    white-space: nowrap;
+  }
+}
+
+.about-profile__summary {
+  width: 100%;
+  max-width: none;
+  margin-top: 1.5rem;
+  color: #000000;
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.65;
 }
 
 .about-profile__socials {
@@ -2981,7 +3021,7 @@ body.is-dark .site-theme-toggle__moon,
 
 @media screen and (max-width: 720px) {
   .about-profile__content {
-    padding-top: 96px;
+    padding-top: 72px;
   }
 
   .about-profile__socials {
@@ -2992,7 +3032,7 @@ body.is-dark .site-theme-toggle__moon,
   }
 
   .about-profile__content {
-    padding-bottom: 92px;
+    padding-bottom: 80px;
   }
 
   .about-profile__socials a {
@@ -3947,5 +3987,286 @@ html {
   .tech-stack__card,
   .tech-stack__card-logo {
     transition: none;
+  }
+}
+
+.about-tab-panel {
+  display: block;
+}
+
+.about-record-list {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}
+
+.about-record-list--certifications {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.about-record-list--education {
+  gap: 20px;
+}
+
+.about-record-card {
+  min-width: 0;
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  border-radius: 22px;
+  padding: clamp(20px, 3vw, 30px);
+  background: var(--surface);
+  box-shadow: 0 14px 32px rgba(18, 30, 28, 0.08);
+}
+
+body.is-dark .about-record-card {
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+}
+
+.about-record-card--education {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(20px, 4vw, 48px);
+  min-height: 148px;
+  padding: clamp(24px, 3vw, 34px);
+}
+
+.about-education-card__content {
+  min-width: 0;
+}
+
+.about-education-card__detail {
+  margin: 10px 0 0 !important;
+  color: var(--muted) !important;
+  font-family: "Poppins", Arial, sans-serif !important;
+  font-size: clamp(14px, 1.2vw, 17px) !important;
+  letter-spacing: 0;
+  line-height: 1.5 !important;
+}
+
+.about-education-card__logo {
+  display: block;
+  width: clamp(88px, 10vw, 132px);
+  max-height: 96px;
+  object-fit: contain;
+}
+
+.about-record-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.18);
+}
+
+.about-record-card h3 {
+  color: var(--ink);
+  font-family: "aBlackLives", sans-serif;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.about-record-card__date,
+.about-record-card__role {
+  margin: 0 !important;
+  color: var(--muted) !important;
+  font-family: "Poppins", Arial, sans-serif !important;
+  font-size: clamp(13px, 1.1vw, 16px) !important;
+  letter-spacing: 0;
+  line-height: 1.5 !important;
+}
+
+.about-record-card__date {
+  text-align: right;
+}
+
+.about-record-card__role {
+  margin-top: 4px !important;
+}
+
+.about-record-card__details {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding-left: 1.25em;
+  color: var(--muted);
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: clamp(14px, 1.1vw, 17px);
+  line-height: 1.65;
+}
+
+.about-record-card__details li::marker {
+  color: var(--accent);
+}
+
+.about-record-card--empty {
+  border-style: dashed;
+}
+
+.about-record-card--empty .about-record-card__date {
+  margin-bottom: 8px !important;
+  color: var(--accent) !important;
+  font-family: "aBlackLives", sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.14em;
+}
+
+.about-record-card--empty > p:last-child {
+  margin: 12px 0 0 !important;
+}
+
+.about-record-card--certificate {
+  display: flex;
+  min-height: 200px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-record-card--certificate .about-record-card__date {
+  color: var(--accent) !important;
+  font-family: "aBlackLives", sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.about-record-card__issuer {
+  margin: 10px 0 24px !important;
+  color: var(--muted) !important;
+  font-family: "Poppins", Arial, sans-serif !important;
+  font-size: 14px !important;
+  letter-spacing: 0;
+  line-height: 1.5 !important;
+}
+
+.about-record-card__description {
+  margin: 0 0 24px !important;
+  color: var(--muted) !important;
+  font-family: "Poppins", Arial, sans-serif !important;
+  font-size: clamp(14px, 1.05vw, 16px) !important;
+  letter-spacing: 0;
+  line-height: 1.7 !important;
+}
+
+.about-record-card__document-link {
+  margin-top: auto;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: var(--accent);
+  font-family: "aBlackLives", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.about-record-card__document-link:hover,
+.about-record-card__document-link:focus-visible {
+  background: var(--accent);
+  color: var(--page);
+  transform: translateY(-2px);
+}
+
+.document-viewer {
+  width: min(960px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  margin: auto;
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
+  border-radius: 22px;
+  padding: 18px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
+}
+
+.document-viewer::backdrop {
+  background: rgba(8, 12, 10, 0.78);
+  backdrop-filter: blur(5px);
+}
+
+.document-viewer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.document-viewer__header h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "aBlackLives", sans-serif;
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 600;
+}
+
+.document-viewer__close {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.document-viewer__close:hover,
+.document-viewer__close:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--page);
+}
+
+.document-viewer__image {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 128px);
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 720px) {
+  .about-record-list--certifications {
+    grid-template-columns: 1fr;
+  }
+
+  .about-record-card--education {
+    gap: 16px;
+    min-height: 124px;
+    padding: 22px;
+  }
+
+  .about-education-card__logo {
+    width: 76px;
+    max-height: 76px;
+  }
+
+  .about-record-card__header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .about-record-card__date {
+    text-align: left;
+  }
+
+  .document-viewer {
+    padding: 12px;
+    border-radius: 16px;
   }
 }
