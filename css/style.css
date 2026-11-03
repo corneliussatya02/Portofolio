@@ -2883,6 +2883,58 @@ body.is-dark .site-theme-toggle__moon,
   padding-bottom: clamp(72px, 6vw, 80px);
 }
 
+.about-profile__cv-link {
+  position: absolute !important;
+  bottom: 24px;
+  left: clamp(36px, 6vw, 76px);
+  z-index: 3 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(230, 46, 8, 0.3);
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 8px 22px rgba(80, 53, 12, 0.1);
+  color: #b52e11;
+  font-family: "aBlackLives", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.about-profile__cv-link:hover,
+.about-profile__cv-link:focus-visible {
+  transform: translateY(-2px);
+  background: #ffa500;
+  box-shadow: 0 12px 26px rgba(153, 94, 0, 0.18);
+  color: #241a08;
+}
+
+.about-profile__cv-link:focus-visible {
+  outline: 2px solid #9a5c00;
+  outline-offset: 3px;
+}
+
+body.is-dark .about-profile__cv-link {
+  border-color: rgba(255, 193, 92, 0.38);
+  background: rgba(35, 32, 27, 0.72);
+  color: #ffc15c;
+}
+
+body.is-dark .about-profile__cv-link:hover,
+body.is-dark .about-profile__cv-link:focus-visible {
+  background: #ffa500;
+  color: #241a08;
+}
+
 .about-profile {
   position: relative;
   max-width: 1280px;
@@ -3022,6 +3074,11 @@ body.is-dark .site-theme-toggle__moon,
 @media screen and (max-width: 720px) {
   .about-profile__content {
     padding-top: 72px;
+  }
+
+  .about-profile__cv-link {
+    bottom: 22px;
+    left: 28px;
   }
 
   .about-profile__socials {
@@ -4268,19 +4325,48 @@ body.is-dark .about-record-card--education::before {
   color: var(--accent);
 }
 
-.about-record-card--empty {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.about-record-card--experience {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 24px;
 }
 
-.about-record-card--empty > p:last-child {
-  margin: 12px 0 0 !important;
-  color: var(--muted);
-  font-family: "Poppins", Arial, sans-serif;
-  font-size: clamp(13px, 0.95vw, 15px);
-  line-height: 1.7;
+.about-record-card--experience .about-record-card__role {
+  margin-top: 8px !important;
+}
+
+.about-record-card__experience-content {
+  min-width: 0;
+}
+
+.about-record-card__experience-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.about-record-card__documentation {
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 9px 12px;
+  background: transparent;
+  color: var(--accent);
+  font-family: "aBlackLives", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.about-record-card__details {
   text-align: justify;
+}
+
+.about-record-card__documentation:disabled {
+  border-color: rgba(var(--accent-rgb), 0.42);
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.72;
 }
 
 .about-record-card--certificate {
@@ -4289,12 +4375,45 @@ body.is-dark .about-record-card--education::before {
   align-items: flex-start;
 }
 
+.about-record-card__certificate-header {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.about-record-card__certificate-header > div {
+  min-width: 0;
+}
+
 .about-record-card--certificate h3 {
   font-size: clamp(18px, 1.9vw, 23px);
 }
 
+.about-record-card--experience h3,
+.about-record-card--organization h3 {
+  font-size: clamp(18px, 1.9vw, 23px);
+}
+
+.about-record-card--experience .about-record-card__role,
+.about-record-card--organization .about-record-card__role,
+.about-record-card--organization .about-record-card__date {
+  font-size: 13px !important;
+}
+
+.about-record-card--experience .about-record-card__details,
+.about-record-card--organization .about-record-card__details {
+  font-size: clamp(13px, 0.95vw, 15px);
+  line-height: 1.7;
+}
+
+.about-record-card--organization .about-record-card__proof-link {
+  font-size: 11px;
+}
+
 .about-record-card__issuer {
-  margin: 8px 0 16px !important;
+  margin: 8px 0 0 !important;
   color: var(--muted) !important;
   font-family: "Poppins", Arial, sans-serif !important;
   font-size: 13px !important;
@@ -4303,7 +4422,7 @@ body.is-dark .about-record-card--education::before {
 }
 
 .about-record-card__description {
-  margin: 0 0 16px !important;
+  margin: 16px 0 16px !important;
   color: var(--muted) !important;
   font-family: "Poppins", Arial, sans-serif !important;
   font-size: clamp(13px, 0.95vw, 15px) !important;
@@ -4313,7 +4432,9 @@ body.is-dark .about-record-card--education::before {
 }
 
 .about-record-card__document-link {
-  margin-top: auto;
+  align-self: flex-end;
+  flex: 0 0 auto;
+  margin: 0;
   border: 1px solid var(--accent);
   border-radius: 999px;
   padding: 9px 12px;
@@ -4404,6 +4525,16 @@ body.is-dark .about-record-card--education::before {
 @media screen and (max-width: 720px) {
   .about-record-list--certifications {
     grid-template-columns: 1fr;
+  }
+
+  .about-record-card--experience {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .about-record-card__experience-actions {
+    justify-content: flex-start;
+    padding-top: 0;
   }
 
   .about-record-card--education {
