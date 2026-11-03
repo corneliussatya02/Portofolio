@@ -71,11 +71,28 @@ body {
 
 .hero {
   position: relative;
+  isolation: isolate;
   width: 100%;
   /* Tinggi mengikuti viewport, minimum cukup untuk semua elemen */
   min-height: 100svh;
   height: 100svh;
-  background-color: var(--page);
+  background-color: #fffcf8;
+  background-image:
+    radial-gradient(
+      ellipse at 10% 10%,
+      rgba(248, 237, 230, 0.88),
+      transparent 34%
+    ),
+    radial-gradient(
+      ellipse at 90% 58%,
+      rgba(248, 237, 230, 0.72),
+      transparent 32%
+    ),
+    radial-gradient(
+      ellipse at 48% 108%,
+      rgba(248, 237, 230, 0.68),
+      transparent 38%
+    );
   overflow: visible;
 }
 
@@ -1101,7 +1118,6 @@ body.is-dark {
 }
 
 body,
-.hero,
 .about-section,
 .projects {
   background-color: var(--page);
@@ -1351,23 +1367,13 @@ body {
 .hero::before {
   position: absolute;
   inset: 0;
-  z-index: 1;
-  background-image:
-    linear-gradient(
-      90deg,
-      transparent 0,
-      transparent calc(50% - 1px),
-      rgba(var(--accent-rgb), 0.1) 50%,
-      transparent calc(50% + 1px)
-    ),
-    linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(50% - 1px),
-      rgba(var(--accent-rgb), 0.08) 50%,
-      transparent calc(50% + 1px)
-    );
+  z-index: 0;
+  background-image: url("../assets/images/topographic-contours.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   content: "";
+  opacity: 0.52;
   pointer-events: none;
 }
 
@@ -1572,9 +1578,12 @@ body.is-dark .project__img-wrap {
 }
 
 @media screen and (max-width: 720px) {
-  .hero::before,
   .about-section::before {
     display: none;
+  }
+
+  .hero::before {
+    background-size: 100% 100%;
   }
 
   .site-theme-toggle {
@@ -2685,6 +2694,20 @@ body.is-dark .projects {
   background-image: none;
 }
 
+html.is-dark .hero,
+body.is-dark .hero {
+  background-color: #11111f;
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(221, 161, 143, 0.08), transparent 34%),
+    radial-gradient(ellipse at 88% 92%, rgba(221, 161, 143, 0.06), transparent 38%);
+}
+
+html.is-dark .hero::before,
+body.is-dark .hero::before {
+  filter: brightness(2.1);
+  opacity: 0.9;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .about-profile.is-tilting {
     box-shadow: 0 34px 74px rgba(24, 46, 41, 0.2);
@@ -3354,6 +3377,7 @@ html {
 
 .site-header {
   position: fixed;
+  isolation: isolate;
   top: clamp(14px, 3vh, 28px);
   left: 50vw;
   z-index: 50;
@@ -3371,12 +3395,33 @@ html {
   backdrop-filter: blur(18px);
 }
 
+.site-header::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("../assets/images/topographic-nav.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  content: "";
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 body.is-dark .site-header {
   background: color-mix(in srgb, var(--surface) 90%, transparent);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
 }
 
+body.is-dark .site-header::before {
+  filter: brightness(2.4);
+  opacity: 0.95;
+}
+
 .site-header__inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: clamp(16px, 2vw, 28px);
@@ -3408,14 +3453,26 @@ body.is-dark .site-header {
   width: 40px;
   height: 40px;
   min-height: 40px;
+  border: 0;
+  border-radius: 0;
   border-color: transparent;
-  background: var(--surface);
+  background: transparent;
   color: var(--accent);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.site-header .site-theme-toggle .site-theme-toggle__icon,
+.site-header .site-theme-toggle:hover .site-theme-toggle__icon {
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
   box-shadow: none;
 }
 
 .site-header .site-theme-toggle:hover {
-  background: rgba(var(--accent-rgb), 0.1);
+  background: transparent;
+  color: var(--accent);
   transform: none;
 }
 
