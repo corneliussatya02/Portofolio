@@ -12,7 +12,7 @@
     var menuToggle = document.querySelector(".site-menu-toggle");
     var navigation = document.querySelector(".site-nav");
     var sections = Array.from(
-      document.querySelectorAll("#home, #about, #projects"),
+      document.querySelectorAll("#home, #about, #projects, #contact"),
     );
     var sectionLinks = Array.from(
       document.querySelectorAll('.site-nav__link[href^="#"]'),
