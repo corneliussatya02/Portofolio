@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <script>
@@ -25,7 +25,7 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="css/style.css?v=20261103-24" />
+    <link rel="stylesheet" href="css/style.css?v=20261104-38" />
   </head>
 
   <body>
@@ -994,23 +994,25 @@
             <p class="project__subtitle">K-Means × BIRCH</p>
             <h3 class="project__title">Bike Sales<br />Clustering</h3>
             <p class="project__desc">
-              Comparison of K-Means and BIRCH algorithms for bike sales customer
-              segmentation.
+              Aplikasi analisis dan segmentasi penjualan sepeda dengan K-Means
+              dan BIRCH untuk mendukung keputusan bisnis berbasis data.
             </p>
-            <a
+            <button
               class="project__cta"
-              href="#"
+              type="button"
+              data-project-id="bike-sales"
+              aria-haspopup="dialog"
               aria-label="View Bike Sales Clustering project"
             >
               VIEW PROJECT <span class="project__cta-arrow">→</span>
-            </a>
+            </button>
           </div>
 
           <div class="project__preview">
             <!-- Ganti src dengan screenshot project saat tersedia -->
             <div class="project__img-wrap">
               <img
-                src="assets/images/project-01.png"
+                src="assets/images/project/KMEANSBIRCH.png"
                 alt="Bike Sales Clustering preview"
                 class="project__img"
                 onerror="
@@ -1031,18 +1033,20 @@
         <article class="project-item">
           <span class="project-item__number">02</span>
           <div class="project-item__content">
-            <h3 class="project-item__title">Tanamin E-Commerce</h3>
+            <h3 class="project-item__title">Tanam.in E-Commerce</h3>
             <span class="project-item__category"
-              >UI/UX DESIGN / WEB DEVELOPMENT</span
+              >WEB DEVELOPMENT / E-COMMERCE</span
             >
           </div>
-          <a
+          <button
             class="project-item__cta"
-            href="#"
-            aria-label="View Tanamin E-Commerce project"
+            type="button"
+            data-project-id="tanamin"
+            aria-haspopup="dialog"
+            aria-label="Lihat detail proyek Tanam.in E-Commerce"
           >
             VIEW <span>→</span>
-          </a>
+          </button>
         </article>
 
         <div class="project-list__divider"></div>
@@ -1051,16 +1055,18 @@
         <article class="project-item">
           <span class="project-item__number">03</span>
           <div class="project-item__content">
-            <h3 class="project-item__title">Event Manager</h3>
-            <span class="project-item__category">SOFTWARE ENGINEERING</span>
+            <h3 class="project-item__title">Sales Analytics Dashboard</h3>
+            <span class="project-item__category">DATA ANALYTICS / DASHBOARD</span>
           </div>
-          <a
+          <button
             class="project-item__cta"
-            href="#"
-            aria-label="View Event Manager project"
+            type="button"
+            data-project-id="sales-analytics"
+            aria-haspopup="dialog"
+            aria-label="Lihat detail proyek Sales Analytics Dashboard"
           >
             VIEW <span>→</span>
-          </a>
+          </button>
         </article>
 
         <div class="project-list__divider"></div>
@@ -1069,19 +1075,164 @@
         <article class="project-item">
           <span class="project-item__number">04</span>
           <div class="project-item__content">
-            <h3 class="project-item__title">BR FOLK</h3>
-            <span class="project-item__category">BRANDING / UI/UX</span>
+            <h3 class="project-item__title">Deteksi Jalan Rusak</h3>
+            <span class="project-item__category">IMAGE PROCESSING / MACHINE LEARNING</span>
           </div>
-          <a
+          <button
             class="project-item__cta"
-            href="#"
-            aria-label="View BR FOLK project"
+            type="button"
+            data-project-id="road-damage"
+            aria-haspopup="dialog"
+            aria-label="Lihat detail proyek Deteksi Jalan Rusak"
           >
             VIEW <span>→</span>
-          </a>
+          </button>
+        </article>
+
+        <div class="project-list__divider"></div>
+
+        <!-- 05 -->
+        <article class="project-item">
+          <span class="project-item__number">05</span>
+          <div class="project-item__content">
+            <h3 class="project-item__title">Sistem Rekomendasi Musik</h3>
+            <span class="project-item__category">MACHINE LEARNING / WEB APP</span>
+          </div>
+          <button
+            class="project-item__cta"
+            type="button"
+            data-project-id="music-recommendation"
+            aria-haspopup="dialog"
+            aria-label="Lihat detail proyek Sistem Rekomendasi Musik"
+          >
+            VIEW <span>→</span>
+          </button>
+        </article>
+
+        <div class="project-list__divider"></div>
+
+        <!-- 06 -->
+        <article class="project-item">
+          <span class="project-item__number">06</span>
+          <div class="project-item__content">
+            <h3 class="project-item__title">Aplikasi Pengelolaan Acara Musik</h3>
+            <span class="project-item__category">ANDROID / MOBILE DEVELOPMENT</span>
+          </div>
+          <button
+            class="project-item__cta"
+            type="button"
+            data-project-id="music-events"
+            aria-haspopup="dialog"
+            aria-label="Lihat detail Aplikasi Pengelolaan Acara Musik"
+          >
+            VIEW <span>→</span>
+          </button>
+        </article>
+
+        <div class="project-list__divider"></div>
+
+        <!-- 07 -->
+        <article class="project-item">
+          <span class="project-item__number">07</span>
+          <div class="project-item__content">
+            <h3 class="project-item__title">Automotive Sales Dashboard</h3>
+            <span class="project-item__category">BUSINESS INTELLIGENCE / POWER BI</span>
+          </div>
+          <button
+            class="project-item__cta"
+            type="button"
+            data-project-id="automotive-dashboard"
+            aria-haspopup="dialog"
+            aria-label="Lihat detail Automotive Sales Dashboard"
+          >
+            VIEW <span>→</span>
+          </button>
+        </article>
+
+        <div class="project-list__divider"></div>
+
+        <!-- 08 -->
+        <article class="project-item">
+          <span class="project-item__number">08</span>
+          <div class="project-item__content">
+            <h3 class="project-item__title">BR FOLK</h3>
+            <span class="project-item__category">BRANDING / UI/UX DESIGN</span>
+          </div>
+          <button
+            class="project-item__cta"
+            type="button"
+            data-project-id="br-folk"
+            aria-haspopup="dialog"
+            aria-label="Lihat detail proyek BR FOLK"
+          >
+            VIEW <span>→</span>
+          </button>
         </article>
       </div>
     </section>
+
+    <dialog
+      class="project-detail"
+      aria-labelledby="project-detail-title"
+      aria-describedby="project-detail-description"
+    >
+      <div class="project-detail__panel">
+        <button
+          class="document-viewer__close project-detail__close"
+          type="button"
+          aria-label="Tutup detail proyek"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div
+          class="project-detail__media"
+          aria-label="Dokumentasi proyek"
+        >
+          <div class="project-detail__identity">
+            <p class="project-detail__eyebrow"></p>
+            <h2 id="project-detail-title"></h2>
+            <p class="project-detail__category"></p>
+          </div>
+          <div class="project-detail__visual" aria-live="polite">
+            <div class="project-detail__placeholder">
+              <span class="project-detail__placeholder-mark" aria-hidden="true">+</span>
+              <span>Dokumentasi project akan ditambahkan</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-detail__content">
+          <p
+            class="project-detail__description"
+            id="project-detail-description"
+          ></p>
+          <div class="project-detail__stack">
+            <h3>Tech Stack</h3>
+            <ul class="project-detail__tags"></ul>
+          </div>
+          <div class="project-detail__actions" aria-label="Tautan proyek"></div>
+        </div>
+      </div>
+      <nav class="project-detail__navigation" aria-label="Navigasi proyek">
+        <button
+          class="project-detail__nav-button"
+          type="button"
+          data-project-direction="-1"
+          aria-label="Buka proyek sebelumnya"
+          title="Proyek sebelumnya"
+        >
+          <span aria-hidden="true">‹</span>
+        </button>
+        <button
+          class="project-detail__nav-button"
+          type="button"
+          data-project-direction="1"
+          aria-label="Buka proyek berikutnya"
+          title="Proyek berikutnya"
+        >
+          <span aria-hidden="true">›</span>
+        </button>
+      </nav>
+    </dialog>
 
     <section
       class="contact-section"
@@ -1151,8 +1302,26 @@
           </a>
         </nav>
       </div>
+      <footer class="site-footer">
+        <p class="site-footer__copyright">
+          <span>© 2026 Cornelius Adyatma Satya Gunawan</span>
+          <span class="site-footer__separator" aria-hidden="true">|</span>
+          <span>Crafting ideas into reality.</span>
+        </p>
+        <svg
+          class="site-footer__gesture"
+          viewBox="0 0 56 68"
+          role="img"
+          aria-label="Salam tiga jari"
+          focusable="false"
+        >
+          <path
+            d="M13 57V29a5 5 0 0 1 10 0v13V18a5 5 0 0 1 10 0v24V24a5 5 0 0 1 10 0v22"
+          />
+        </svg>
+      </footer>
     </section>
 
-    <script src="js/main.js?v=20261103-2"></script>
+    <script src="js/main.js?v=20261104-10"></script>
   </body>
 </html>

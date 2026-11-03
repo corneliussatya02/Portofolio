@@ -350,6 +350,395 @@
     });
   }
 
+  function initProjectDetails() {
+    var dialog = document.querySelector(".project-detail");
+    var closeButton = document.querySelector(".project-detail__close");
+    var title = document.querySelector("#project-detail-title");
+    var eyebrow = document.querySelector(".project-detail__eyebrow");
+    var category = document.querySelector(".project-detail__category");
+    var description = document.querySelector("#project-detail-description");
+    var tags = document.querySelector(".project-detail__tags");
+    var actions = document.querySelector(".project-detail__actions");
+    var media = document.querySelector(".project-detail__media");
+    var visual = document.querySelector(".project-detail__visual");
+    var placeholder = visual && visual.querySelector(".project-detail__placeholder");
+    var navigationButtons = Array.from(
+      document.querySelectorAll(".project-detail__nav-button"),
+    );
+    var lastTrigger;
+    var technologyColors = {
+      Python: "#3776ab",
+      Streamlit: "#ff4b4b",
+      Pandas: "#604080",
+      "scikit-learn": "#f7931e",
+      "K-Means": "#f7931e",
+      BIRCH: "#2f855a",
+      "Silhouette Score": "#0f766e",
+      "Davies-Bouldin Index": "#0f766e",
+      "Computation Time": "#64748b",
+      PHP: "#777bb4",
+      Laravel: "#ff2d20",
+      MySQL: "#4479a1",
+      Blade: "#f05340",
+      Bootstrap: "#7952b3",
+      JavaScript: "#c6a700",
+      HTML: "#e34f26",
+      CSS: "#1572b6",
+      CSV: "#687386",
+      OpenCV: "#5c3ee8",
+      NumPy: "#4dabcf",
+      "scikit-image": "#cb4b16",
+      Flask: "#333333",
+      Kotlin: "#7f52ff",
+      "Jetpack Compose": "#4285f4",
+      "Material 3": "#6750a4",
+      Retrofit: "#2b9a57",
+      "REST API": "#64748b",
+      "Power BI": "#c49a00",
+      "Power Query": "#742774",
+      DAX: "#e6a700",
+      KPI: "#0f766e",
+      "Data Visualization": "#2563eb",
+      "Interactive Filters": "#0891b2",
+      "Edge Detection": "#5c3ee8",
+      HOG: "#805ad5",
+      "Contour Analysis": "#cb4b16",
+      Heatmap: "#e53e3e",
+      "Content-Based Recommendation": "#2563eb",
+      "Audio Features": "#7c3aed",
+      "Similarity Matching": "#0f766e",
+      MVC: "#ff2d20",
+      "Payment Integration": "#2b9a57",
+      Figma: "#f24e1e",
+      "UI/UX Design": "#805ad5",
+      Prototyping: "#805ad5",
+      "E-Commerce": "#059669",
+      "Responsive UI": "#2563eb",
+      "Product Catalog": "#db2777",
+      "Shopping Cart": "#d97706",
+    };
+    var projects = {
+      "bike-sales": {
+        number: "01",
+        title: "Bike Sales Clustering",
+        category: "Data Analytics / Machine Learning",
+        description:
+          "Mengembangkan aplikasi analisis dan segmentasi data penjualan sepeda berbasis web menggunakan Python dan Streamlit dengan menerapkan serta membandingkan algoritma Machine Learning K-Means dan BIRCH. Proyek ini bertujuan mengelompokkan sepeda berdasarkan karakteristik harga ke dalam tiga segmen, yaitu Entry-Level, Mid-Range, dan High-End. Proses pengembangan mencakup data preprocessing, clustering, visualisasi hasil, serta evaluasi performa algoritma menggunakan Silhouette Score, Davies-Bouldin Index (DBI), dan waktu komputasi. Hasil segmentasi dapat dimanfaatkan untuk memahami karakteristik produk, mengidentifikasi segmen pasar, serta mendukung penyusunan strategi pemasaran dan pengambilan keputusan bisnis berbasis data.",
+        technologies: [
+          "Python",
+          "Streamlit",
+          "Pandas",
+          "scikit-learn",
+          "K-Means",
+          "BIRCH",
+          "Silhouette Score",
+          "Davies-Bouldin Index",
+          "Computation Time",
+        ],
+        image: "assets/images/project/KMEANSBIRCH.png",
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/corneliussatya02/comparison-K-Means-and-BIRCH.git",
+          },
+        ],
+      },
+      tanamin: {
+        number: "02",
+        title: "Tanam.in E-Commerce",
+        category: "Web Development / E-Commerce",
+        description:
+          "Aplikasi e-commerce berbasis web untuk menampilkan dan mengelola produk serta mendukung alur autentikasi dan transaksi. Proyek menggunakan arsitektur Laravel MVC dan integrasi layanan pembayaran.",
+        technologies: [
+          "PHP",
+          "Laravel",
+          "MySQL",
+          "Blade",
+          "Bootstrap",
+          "JavaScript",
+          "MVC",
+          "Payment Integration",
+        ],
+        image: "assets/images/project/TANAMIN.png",
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/corneliussatya02/Tanamin-E-commerce.git",
+          },
+        ],
+      },
+      "sales-analytics": {
+        number: "03",
+        title: "Sales Analytics Dashboard",
+        category: "Data Analytics / Dashboard",
+        description:
+          "Dashboard interaktif untuk mengeksplorasi data transaksi penjualan melalui filter wilayah, kategori produk, tipe pelanggan, dan kanal penjualan. Menampilkan KPI serta visualisasi tren pendapatan dan performa wilayah.",
+        technologies: [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "CSV",
+          "KPI",
+          "Data Visualization",
+          "Interactive Filters",
+        ],
+        image: "assets/images/project/SALESANALYTICS.png",
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/corneliussatya02/Sales-Analytics-Dashboard.git",
+          },
+        ],
+      },
+      "road-damage": {
+        number: "04",
+        title: "Deteksi Jalan Rusak",
+        category: "Image Processing / Machine Learning",
+        description:
+          "Aplikasi untuk menganalisis gambar kondisi jalan dengan pemrosesan citra, deteksi tepi, ekstraksi fitur HOG, kontur, dan visualisasi heatmap. Pengguna dapat mengatur parameter analisis melalui antarmuka interaktif.",
+        technologies: [
+          "Python",
+          "Streamlit",
+          "OpenCV",
+          "NumPy",
+          "scikit-image",
+          "HOG",
+          "Edge Detection",
+          "Contour Analysis",
+          "Heatmap",
+        ],
+        image: "assets/images/project/JALANRUSAK.png",
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/corneliussatya02/Deteksi-Jalan-Rusak.git",
+          },
+        ],
+      },
+      "music-recommendation": {
+        number: "05",
+        title: "Sistem Rekomendasi Musik",
+        category: "Machine Learning / Web App",
+        description:
+          "Aplikasi web yang merekomendasikan lagu berdasarkan kemiripan fitur audio. Pengguna dapat mencari berdasarkan lagu, artis, atau genre untuk menemukan rekomendasi musik yang relevan.",
+        technologies: [
+          "Python",
+          "Flask",
+          "Pandas",
+          "scikit-learn",
+          "Content-Based Recommendation",
+          "Audio Features",
+          "Similarity Matching",
+        ],
+        image: "assets/images/project/REKOMMUSIK.png",
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/corneliussatya02/Sistem-Rekomendasi-Musik.git",
+          },
+        ],
+      },
+      "music-events": {
+        number: "06",
+        title: "Aplikasi Pengelolaan Acara Musik",
+        category: "Android / Mobile Development",
+        description:
+          "Aplikasi Android untuk melihat daftar dan detail acara musik, serta mengelola data acara melalui operasi tambah, ubah, dan hapus yang terhubung ke REST API.",
+        technologies: [
+          "Kotlin",
+          "Jetpack Compose",
+          "Material 3",
+          "Retrofit",
+          "REST API",
+        ],
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/cahyokml/uas_project.git",
+          },
+        ],
+      },
+      "automotive-dashboard": {
+        number: "07",
+        title: "Automotive Sales Dashboard",
+        category: "Business Intelligence / Power BI",
+        description:
+          "Mengembangkan dashboard interaktif untuk menganalisis data penjualan otomotif menggunakan Microsoft Power BI. Dashboard dirancang untuk memantau performa penjualan berdasarkan periode waktu, cabang, kategori kendaraan, metode pembayaran, dan status transaksi. Proses pengembangan mencakup pengolahan dan visualisasi data, penyusunan Key Performance Indicators (KPI), serta analisis tren penjualan, jumlah transaksi, kuantitas produk, dan tingkat penyelesaian transaksi. Visualisasi interaktif dan filter dinamis membantu mengidentifikasi performa penjualan, memahami pola transaksi, serta mendukung pengambilan keputusan bisnis berbasis data.",
+        technologies: [
+          "Power BI",
+          "KPI",
+          "Data Visualization",
+          "Interactive Filters",
+        ],
+        image: "assets/images/project/AUTOMOTIVE.png",
+        links: [],
+      },
+      "br-folk": {
+        number: "08",
+        title: "BR FOLK",
+        category: "E-Commerce / UI/UX Design",
+        description:
+          "Merancang dan mengembangkan konsep platform e-commerce BR.FOLK untuk jual beli produk sportswear yang memadukan tren olahraga dan gaya hidup anak muda. Platform ini menghadirkan pengalaman belanja digital modern melalui katalog produk, kategori pria, wanita, dan anak-anak, fitur pencarian, serta keranjang belanja. Desain antarmuka yang responsif, navigasi intuitif, dan pengalaman pengguna yang nyaman mendukung eksplorasi koleksi dari berbagai merek olahraga global seperti Nike dan Adidas.",
+        technologies: [
+          "Figma",
+          "UI/UX Design",
+          "Prototyping",
+          "E-Commerce",
+          "Responsive UI",
+          "Product Catalog",
+          "Shopping Cart",
+        ],
+        image: "assets/images/project/BRFOLK.png",
+        links: [
+          {
+            label: "Figma",
+            href: "https://www.figma.com/proto/2TTkyqE3bYtOAaLsTzgpyi/BR.FOLK?node-id=13-479&t=4CQCSwNmCJuDfjr0-1",
+          },
+        ],
+      },
+    };
+
+    if (
+      !dialog ||
+      !closeButton ||
+      !title ||
+      !eyebrow ||
+      !category ||
+      !description ||
+      !tags ||
+      !actions ||
+      !media ||
+      !visual ||
+      !placeholder
+    )
+      return;
+
+    function createLink(link) {
+      var anchor = document.createElement("a");
+      anchor.className = "project-detail__link";
+      anchor.href = link.href;
+      anchor.target = "_blank";
+      anchor.rel = "noopener noreferrer";
+      anchor.textContent = link.label;
+      return anchor;
+    }
+
+    function renderProject(projectId) {
+      var project = projects[projectId];
+      var projectIndex = projectIds.indexOf(projectId);
+      if (!project || projectIndex < 0) return;
+
+      currentProjectId = projectId;
+      eyebrow.textContent = "PROJECT / " + project.number;
+      title.textContent = project.title;
+      category.textContent = project.category;
+      description.textContent = project.description;
+      tags.replaceChildren();
+      actions.replaceChildren();
+      visual.replaceChildren();
+
+      if (project.image) {
+        var imageBackdrop = document.createElement("img");
+        imageBackdrop.className = "project-detail__image-backdrop";
+        imageBackdrop.src = project.image;
+        imageBackdrop.alt = "";
+        imageBackdrop.setAttribute("aria-hidden", "true");
+
+        var image = document.createElement("img");
+        image.className = "project-detail__image";
+        image.src = project.image;
+        image.alt = "Dokumentasi proyek " + project.title;
+        image.loading = "lazy";
+        image.addEventListener("error", function () {
+          visual.replaceChildren(placeholder);
+        });
+        visual.appendChild(imageBackdrop);
+        visual.appendChild(image);
+      } else {
+        visual.appendChild(placeholder);
+      }
+
+      project.technologies.forEach(function (technology) {
+        var tag = document.createElement("li");
+        tag.textContent = technology;
+        tag.style.setProperty(
+          "--tech-color",
+          technologyColors[technology] || "#64748b",
+        );
+        tags.appendChild(tag);
+      });
+
+      project.links.forEach(function (link) {
+        if (!link.href) return;
+        actions.appendChild(createLink(link));
+      });
+      actions.hidden = actions.childElementCount === 0;
+      navigationButtons.forEach(function (button) {
+        var direction = Number(button.getAttribute("data-project-direction"));
+        var neighborIndex =
+          (projectIndex + direction + projectIds.length) % projectIds.length;
+        var neighbor = projects[projectIds[neighborIndex]];
+        button.setAttribute(
+          "aria-label",
+          "Buka proyek " +
+            (direction < 0 ? "sebelumnya: " : "berikutnya: ") +
+            neighbor.title,
+        );
+        button.title = neighbor.title;
+      });
+    }
+
+    var projectIds = Object.keys(projects);
+    var currentProjectId;
+
+    document.addEventListener("click", function (event) {
+      var trigger = event.target.closest("[data-project-id]");
+      if (!trigger) return;
+
+      var projectId = trigger.getAttribute("data-project-id");
+      if (!projects[projectId]) return;
+
+      lastTrigger = trigger;
+      renderProject(projectId);
+
+      if (!dialog.open) dialog.showModal();
+    });
+
+    navigationButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var direction = Number(button.getAttribute("data-project-direction"));
+        var currentIndex = projectIds.indexOf(currentProjectId);
+        var nextIndex =
+          (currentIndex + direction + projectIds.length) % projectIds.length;
+        renderProject(projectIds[nextIndex]);
+      });
+    });
+
+    closeButton.addEventListener("click", function () {
+      dialog.close();
+    });
+
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) dialog.close();
+    });
+
+    dialog.addEventListener("keydown", function (event) {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      if (event.target.closest("input, textarea, select, [contenteditable='true']"))
+        return;
+      event.preventDefault();
+      var direction = event.key === "ArrowRight" ? 1 : -1;
+      var currentIndex = projectIds.indexOf(currentProjectId);
+      var nextIndex =
+        (currentIndex + direction + projectIds.length) % projectIds.length;
+      renderProject(projectIds[nextIndex]);
+    });
+
+    dialog.addEventListener("close", function () {
+      if (lastTrigger) lastTrigger.focus({ preventScroll: true });
+    });
+  }
+
   function initProfileTilt() {
     var profile = document.querySelector(".about-profile");
     var animationFrame;
@@ -695,6 +1084,7 @@
     initThemeToggle();
     initTabs();
     initDocumentViewer();
+    initProjectDetails();
     initProfileTilt();
     initTechStackCarousel();
     initScrollProgress();
