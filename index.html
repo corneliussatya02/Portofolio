@@ -314,7 +314,7 @@
               <div class="about-record-card__experience-content">
                 <h3>Swalco</h3>
                 <p class="about-record-card__role">
-                  Barista | Januari – September 2026 | Part-Time
+                  Barista & Talent | Januari – September 2026 | Part-Time
                 </p>
                 <ul class="about-record-card__details">
                   <li>
@@ -338,8 +338,11 @@
                 <button
                   class="about-record-card__documentation"
                   type="button"
-                  disabled
-                  title="Dokumentasi akan tersedia setelah file ditambahkan"
+                  aria-haspopup="dialog"
+                  aria-label="Lihat dokumentasi Swalco"
+                  data-document-gallery="swalco"
+                  data-document-title="Dokumentasi Swalco"
+                  title="Lihat dokumentasi Swalco"
                 >
                   Dokumentasi
                 </button>
@@ -711,18 +714,35 @@
       </div>
     </section>
 
-    <dialog class="document-viewer" aria-labelledby="document-viewer-title">
-      <div class="document-viewer__header">
-        <h2 id="document-viewer-title">Dokumen</h2>
+    <dialog class="document-viewer" aria-label="Dokumentasi foto">
+      <button
+        class="document-viewer__close"
+        type="button"
+        aria-label="Tutup dokumentasi"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="document-viewer__gallery">
         <button
-          class="document-viewer__close"
+          class="document-viewer__nav-button"
           type="button"
-          aria-label="Tutup dokumen"
+          data-document-direction="-1"
+          aria-label="Foto sebelumnya"
+          hidden
         >
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true">‹</span>
+        </button>
+        <img class="document-viewer__image" alt="" />
+        <button
+          class="document-viewer__nav-button"
+          type="button"
+          data-document-direction="1"
+          aria-label="Foto berikutnya"
+          hidden
+        >
+          <span aria-hidden="true">›</span>
         </button>
       </div>
-      <img class="document-viewer__image" alt="" />
     </dialog>
 
     <section
@@ -1056,7 +1076,9 @@
           <span class="project-item__number">03</span>
           <div class="project-item__content">
             <h3 class="project-item__title">Sales Analytics Dashboard</h3>
-            <span class="project-item__category">DATA ANALYTICS / DASHBOARD</span>
+            <span class="project-item__category"
+              >DATA ANALYTICS / DASHBOARD</span
+            >
           </div>
           <button
             class="project-item__cta"
@@ -1076,7 +1098,9 @@
           <span class="project-item__number">04</span>
           <div class="project-item__content">
             <h3 class="project-item__title">Deteksi Jalan Rusak</h3>
-            <span class="project-item__category">IMAGE PROCESSING / MACHINE LEARNING</span>
+            <span class="project-item__category"
+              >IMAGE PROCESSING / MACHINE LEARNING</span
+            >
           </div>
           <button
             class="project-item__cta"
@@ -1096,7 +1120,9 @@
           <span class="project-item__number">05</span>
           <div class="project-item__content">
             <h3 class="project-item__title">Sistem Rekomendasi Musik</h3>
-            <span class="project-item__category">MACHINE LEARNING / WEB APP</span>
+            <span class="project-item__category"
+              >MACHINE LEARNING / WEB APP</span
+            >
           </div>
           <button
             class="project-item__cta"
@@ -1115,8 +1141,12 @@
         <article class="project-item">
           <span class="project-item__number">06</span>
           <div class="project-item__content">
-            <h3 class="project-item__title">Aplikasi Pengelolaan Acara Musik</h3>
-            <span class="project-item__category">ANDROID / MOBILE DEVELOPMENT</span>
+            <h3 class="project-item__title">
+              Aplikasi Pengelolaan Acara Musik
+            </h3>
+            <span class="project-item__category"
+              >ANDROID / MOBILE DEVELOPMENT</span
+            >
           </div>
           <button
             class="project-item__cta"
@@ -1136,7 +1166,9 @@
           <span class="project-item__number">07</span>
           <div class="project-item__content">
             <h3 class="project-item__title">Automotive Sales Dashboard</h3>
-            <span class="project-item__category">BUSINESS INTELLIGENCE / POWER BI</span>
+            <span class="project-item__category"
+              >BUSINESS INTELLIGENCE / POWER BI</span
+            >
           </div>
           <button
             class="project-item__cta"
@@ -1184,10 +1216,7 @@
         >
           <span aria-hidden="true">&times;</span>
         </button>
-        <div
-          class="project-detail__media"
-          aria-label="Dokumentasi proyek"
-        >
+        <div class="project-detail__media" aria-label="Dokumentasi proyek">
           <div class="project-detail__identity">
             <p class="project-detail__eyebrow"></p>
             <h2 id="project-detail-title"></h2>
@@ -1195,7 +1224,9 @@
           </div>
           <div class="project-detail__visual" aria-live="polite">
             <div class="project-detail__placeholder">
-              <span class="project-detail__placeholder-mark" aria-hidden="true">+</span>
+              <span class="project-detail__placeholder-mark" aria-hidden="true"
+                >+</span
+              >
               <span>Dokumentasi project akan ditambahkan</span>
             </div>
           </div>

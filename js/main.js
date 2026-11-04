@@ -321,24 +321,79 @@
 
   function initDocumentViewer() {
     var viewer = document.querySelector(".document-viewer");
-    var viewerTitle = document.querySelector("#document-viewer-title");
     var viewerImage = document.querySelector(".document-viewer__image");
-    var closeButton = document.querySelector(".document-viewer__close");
+    var closeButton = viewer && viewer.querySelector(".document-viewer__close");
+    var navigationButtons = Array.from(
+      viewer
+        ? viewer.querySelectorAll(".document-viewer__nav-button")
+        : [],
+    );
+    var galleries = {
+      swalco: [
+        {
+          src: "assets/images/swalco/swal.jpg.jpg",
+          alt: "Foto bersama tim Swalco di dalam kafe",
+        },
+        {
+          src: "assets/images/swalco/swal1.jpg.jpg",
+          alt: "Barista sedang menyiapkan kopi di Swalco",
+        },
+        {
+          src: "assets/images/swalco/swal2.jpg.jpg",
+          alt: "Dokumentasi profil Swal.co",
+        },
+        {
+          src: "assets/images/swalco/swal3.jpg.jpg",
+          alt: "Dokumentasi konten Reels Swal.co",
+        },
+      ],
+    };
+    var activeGallery = [];
+    var activeIndex = 0;
+    var lastTrigger;
 
-    if (!viewer || !viewerTitle || !viewerImage || !closeButton) return;
+    if (!viewer || !viewerImage || !closeButton) return;
+
+    function renderImage() {
+      var image = activeGallery[activeIndex];
+      viewerImage.src = image.src;
+      viewerImage.alt = image.alt;
+    }
 
     document.addEventListener("click", function (event) {
-      var trigger = event.target.closest("[data-document-src]");
+      var trigger = event.target.closest(
+        "[data-document-src], [data-document-gallery]",
+      );
       if (!trigger) return;
 
-      var imageSource = trigger.getAttribute("data-document-src");
-      if (!imageSource) return;
-
       var title = trigger.getAttribute("data-document-title") || "Dokumen";
-      viewerTitle.textContent = title;
-      viewerImage.src = imageSource;
-      viewerImage.alt = title;
-      viewer.showModal();
+      var galleryId = trigger.getAttribute("data-document-gallery");
+      var imageSource = trigger.getAttribute("data-document-src");
+      activeGallery = galleryId
+        ? galleries[galleryId]
+        : imageSource
+          ? [{ src: imageSource, alt: title }]
+          : [];
+      if (!activeGallery || !activeGallery.length) return;
+
+      lastTrigger = trigger;
+      activeIndex = 0;
+      viewer.setAttribute("aria-label", title);
+      navigationButtons.forEach(function (button) {
+        button.hidden = activeGallery.length < 2;
+      });
+      renderImage();
+      if (!viewer.open) viewer.showModal();
+    });
+
+    navigationButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var direction = Number(button.getAttribute("data-document-direction"));
+        activeIndex =
+          (activeIndex + direction + activeGallery.length) %
+          activeGallery.length;
+        renderImage();
+      });
     });
 
     closeButton.addEventListener("click", function () {
@@ -347,6 +402,26 @@
 
     viewer.addEventListener("click", function (event) {
       if (event.target === viewer) viewer.close();
+    });
+
+    viewer.addEventListener("keydown", function (event) {
+      if (
+        activeGallery.length < 2 ||
+        (event.key !== "ArrowLeft" && event.key !== "ArrowRight")
+      )
+        return;
+      event.preventDefault();
+      var direction = event.key === "ArrowRight" ? 1 : -1;
+      activeIndex =
+        (activeIndex + direction + activeGallery.length) %
+        activeGallery.length;
+      renderImage();
+    });
+
+    viewer.addEventListener("close", function () {
+      activeGallery = [];
+      viewerImage.removeAttribute("src");
+      if (lastTrigger) lastTrigger.focus({ preventScroll: true });
     });
   }
 
@@ -448,7 +523,7 @@
         title: "Tanam.in E-Commerce",
         category: "Web Development / E-Commerce",
         description:
-          "Aplikasi e-commerce berbasis web untuk menampilkan dan mengelola produk serta mendukung alur autentikasi dan transaksi. Proyek menggunakan arsitektur Laravel MVC dan integrasi layanan pembayaran.",
+          "Tanam.in merupakan proyek pengembangan website e-commerce yang berfokus pada penjualan tanaman hias dan kebutuhan pecinta tanaman. Website ini dirancang dengan antarmuka yang menarik, modern, dan responsif untuk memudahkan pengguna menjelajahi berbagai pilihan tanaman, melihat katalog produk, serta mengakses fitur pencarian, keranjang belanja, akun pengguna, dan pesanan saya. Proyek ini menjadi implementasi pengembangan sistem e-commerce yang mengutamakan kemudahan navigasi, pengalaman pengguna, serta penyajian informasi produk secara terstruktur.",
         technologies: [
           "PHP",
           "Laravel",
@@ -472,7 +547,7 @@
         title: "Sales Analytics Dashboard",
         category: "Data Analytics / Dashboard",
         description:
-          "Dashboard interaktif untuk mengeksplorasi data transaksi penjualan melalui filter wilayah, kategori produk, tipe pelanggan, dan kanal penjualan. Menampilkan KPI serta visualisasi tren pendapatan dan performa wilayah.",
+          "Sales Analytics Dashboard merupakan proyek dashboard interaktif yang dikembangkan untuk menganalisis dan memvisualisasikan data penjualan secara informatif. Dashboard ini menampilkan berbagai metrik utama, seperti total revenue, jumlah transaksi, kuantitas produk terjual, dan rata-rata diskon, serta visualisasi tren penjualan bulanan dan perbandingan pendapatan berdasarkan wilayah. Dilengkapi dengan fitur filter berdasarkan region, kategori produk, tipe pelanggan, dan saluran penjualan, proyek ini membantu pengguna memahami pola penjualan serta mendukung pengambilan keputusan berbasis data.",
         technologies: [
           "HTML",
           "CSS",
@@ -495,7 +570,7 @@
         title: "Deteksi Jalan Rusak",
         category: "Image Processing / Machine Learning",
         description:
-          "Aplikasi untuk menganalisis gambar kondisi jalan dengan pemrosesan citra, deteksi tepi, ekstraksi fitur HOG, kontur, dan visualisasi heatmap. Pengguna dapat mengatur parameter analisis melalui antarmuka interaktif.",
+          "Deteksi Jalan Rusak merupakan proyek pengembangan aplikasi berbasis web untuk membantu proses identifikasi kondisi kerusakan jalan melalui analisis citra digital. Aplikasi ini menyediakan fitur unggah gambar jalan serta visualisasi hasil pemrosesan citra, meliputi grayscale, Edge Canny, mask, contours, heatmap mask, heatmap overlay, dan Histogram of Oriented Gradients (HOG). Dilengkapi dengan pengaturan parameter pemrosesan seperti Canny Threshold, Kernel Morphology, dan Minimal Area Kontur, proyek ini bertujuan untuk membantu pengguna mengamati karakteristik kerusakan permukaan jalan melalui pendekatan pengolahan citra digital.",
         technologies: [
           "Python",
           "Streamlit",
@@ -520,7 +595,7 @@
         title: "Sistem Rekomendasi Musik",
         category: "Machine Learning / Web App",
         description:
-          "Aplikasi web yang merekomendasikan lagu berdasarkan kemiripan fitur audio. Pengguna dapat mencari berdasarkan lagu, artis, atau genre untuk menemukan rekomendasi musik yang relevan.",
+          "Sistem Rekomendasi Musik merupakan proyek pengembangan aplikasi rekomendasi lagu berbasis web menggunakan Flask, Python, Pandas, dan Scikit-learn. Sistem ini dirancang untuk membantu pengguna menemukan lagu yang sesuai dengan preferensi musik berdasarkan judul lagu, nama penyanyi atau band, genre, serta karakteristik audio seperti tempo, energy, danceability, dan positiveness. Dengan menerapkan metode Cosine Similarity dan MinMaxScaler, sistem dapat memberikan rekomendasi lagu yang relevan berdasarkan kemiripan karakteristik musik, sehingga memudahkan pengguna dalam menemukan musik sesuai selera.",
         technologies: [
           "Python",
           "Flask",
