@@ -1,6 +1,31 @@
 (function () {
   "use strict";
 
+  function warmImageCache(sources) {
+    function preloadImages() {
+      sources.forEach(function (source) {
+        var image = new Image();
+        image.decoding = "async";
+        image.fetchPriority = "low";
+        image.src = source;
+      });
+    }
+
+    function schedulePreload() {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(preloadImages, { timeout: 2500 });
+      } else {
+        window.setTimeout(preloadImages, 1200);
+      }
+    }
+
+    if (document.readyState === "complete") {
+      schedulePreload();
+    } else {
+      window.addEventListener("load", schedulePreload, { once: true });
+    }
+  }
+
   var prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
@@ -324,26 +349,24 @@
     var viewerImage = document.querySelector(".document-viewer__image");
     var closeButton = viewer && viewer.querySelector(".document-viewer__close");
     var navigationButtons = Array.from(
-      viewer
-        ? viewer.querySelectorAll(".document-viewer__nav-button")
-        : [],
+      viewer ? viewer.querySelectorAll(".document-viewer__nav-button") : [],
     );
     var galleries = {
       swalco: [
         {
-          src: "assets/images/swalco/swal.jpg.jpg",
+          src: "assets/images/optimized/swalco/swal.jpg",
           alt: "Foto bersama tim Swalco di dalam kafe",
         },
         {
-          src: "assets/images/swalco/swal1.jpg.jpg",
+          src: "assets/images/optimized/swalco/swal1.jpg",
           alt: "Barista sedang menyiapkan kopi di Swalco",
         },
         {
-          src: "assets/images/swalco/swal2.jpg.jpg",
+          src: "assets/images/optimized/swalco/swal2.jpg",
           alt: "Dokumentasi profil Swal.co",
         },
         {
-          src: "assets/images/swalco/swal3.jpg.jpg",
+          src: "assets/images/optimized/swalco/swal3.jpg",
           alt: "Dokumentasi konten Reels Swal.co",
         },
       ],
@@ -353,6 +376,11 @@
     var lastTrigger;
 
     if (!viewer || !viewerImage || !closeButton) return;
+    warmImageCache(
+      galleries.swalco.map(function (image) {
+        return image.src;
+      }),
+    );
 
     function renderImage() {
       var image = activeGallery[activeIndex];
@@ -413,8 +441,7 @@
       event.preventDefault();
       var direction = event.key === "ArrowRight" ? 1 : -1;
       activeIndex =
-        (activeIndex + direction + activeGallery.length) %
-        activeGallery.length;
+        (activeIndex + direction + activeGallery.length) % activeGallery.length;
       renderImage();
     });
 
@@ -436,7 +463,8 @@
     var actions = document.querySelector(".project-detail__actions");
     var media = document.querySelector(".project-detail__media");
     var visual = document.querySelector(".project-detail__visual");
-    var placeholder = visual && visual.querySelector(".project-detail__placeholder");
+    var placeholder =
+      visual && visual.querySelector(".project-detail__placeholder");
     var navigationButtons = Array.from(
       document.querySelectorAll(".project-detail__nav-button"),
     );
@@ -510,7 +538,7 @@
           "Davies-Bouldin Index",
           "Computation Time",
         ],
-        image: "assets/images/project/KMEANSBIRCH.png",
+        image: "assets/images/optimized/project/KMEANSBIRCH.jpg",
         links: [
           {
             label: "GitHub",
@@ -534,7 +562,7 @@
           "MVC",
           "Payment Integration",
         ],
-        image: "assets/images/project/TANAMIN.png",
+        image: "assets/images/optimized/project/TANAMIN.jpg",
         links: [
           {
             label: "GitHub",
@@ -557,7 +585,7 @@
           "Data Visualization",
           "Interactive Filters",
         ],
-        image: "assets/images/project/SALESANALYTICS.png",
+        image: "assets/images/optimized/project/SALESANALYTICS.jpg",
         links: [
           {
             label: "GitHub",
@@ -582,7 +610,7 @@
           "Contour Analysis",
           "Heatmap",
         ],
-        image: "assets/images/project/JALANRUSAK.png",
+        image: "assets/images/optimized/project/JALANRUSAK.jpg",
         links: [
           {
             label: "GitHub",
@@ -605,7 +633,7 @@
           "Audio Features",
           "Similarity Matching",
         ],
-        image: "assets/images/project/REKOMMUSIK.png",
+        image: "assets/images/optimized/project/REKOMMUSIK.jpg",
         links: [
           {
             label: "GitHub",
@@ -618,7 +646,7 @@
         title: "Aplikasi Pengelolaan Acara Musik",
         category: "Android / Mobile Development",
         description:
-          "Aplikasi Android untuk melihat daftar dan detail acara musik, serta mengelola data acara melalui operasi tambah, ubah, dan hapus yang terhubung ke REST API.",
+          "Events Manager merupakan aplikasi Android yang menghadirkan pengalaman navigasi praktis dalam pengelolaan agenda dan acara. Mengusung antarmuka yang bersih dan mudah digunakan, aplikasi ini memungkinkan pengguna menyaring daftar acara berdasarkan kriteria status, memantau rincian waktu serta kapasitas lokasi, sekaligus menambahkan acara baru dengan alur interaksi yang efisien.",
         technologies: [
           "Kotlin",
           "Jetpack Compose",
@@ -626,6 +654,7 @@
           "Retrofit",
           "REST API",
         ],
+        image: "assets/images/optimized/project/ANDROID.jpg",
         links: [
           {
             label: "GitHub",
@@ -645,7 +674,7 @@
           "Data Visualization",
           "Interactive Filters",
         ],
-        image: "assets/images/project/AUTOMOTIVE.png",
+        image: "assets/images/optimized/project/AUTOMOTIVE.jpg",
         links: [],
       },
       "br-folk": {
@@ -663,11 +692,26 @@
           "Product Catalog",
           "Shopping Cart",
         ],
-        image: "assets/images/project/BRFOLK.png",
+        image: "assets/images/optimized/project/BRFOLK.jpg",
         links: [
           {
             label: "Figma",
             href: "https://www.figma.com/proto/2TTkyqE3bYtOAaLsTzgpyi/BR.FOLK?node-id=13-479&t=4CQCSwNmCJuDfjr0-1",
+          },
+        ],
+      },
+      "encre-nocturne": {
+        number: "09",
+        title: "Encre Nocturne",
+        category: "Web Development / Tattoo Studio",
+        description:
+          'Encre Nocturne adalah platform web studio tato modern yang memadukan estetika minimalis dan visual elegan untuk memperkuat identitas seni kontemporer bertajuk "More Than a Tattoo". Landing page interaktif dengan animasi halus, tipografi tegas, dan tata letak monokromatik menghadirkan pengalaman yang imersif dan eksklusif. Pengunjung dapat menjelajahi kategori karya seni, memahami layanan studio, serta melakukan reservasi atau booking dengan mudah dan efisien.',
+        technologies: ["HTML", "CSS", "JavaScript"],
+        image: "assets/images/optimized/project/TATTOENCRE.jpg",
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/corneliussatya02/BookTatto-EncreNocturne.git",
           },
         ],
       },
@@ -723,7 +767,8 @@
         image.className = "project-detail__image";
         image.src = project.image;
         image.alt = "Dokumentasi proyek " + project.title;
-        image.loading = "lazy";
+        image.loading = "eager";
+        image.decoding = "async";
         image.addEventListener("error", function () {
           visual.replaceChildren(placeholder);
         });
@@ -765,6 +810,13 @@
 
     var projectIds = Object.keys(projects);
     var currentProjectId;
+    warmImageCache(
+      projectIds
+        .map(function (projectId) {
+          return projects[projectId].image;
+        })
+        .filter(Boolean),
+    );
 
     document.addEventListener("click", function (event) {
       var trigger = event.target.closest("[data-project-id]");
@@ -799,7 +851,11 @@
 
     dialog.addEventListener("keydown", function (event) {
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-      if (event.target.closest("input, textarea, select, [contenteditable='true']"))
+      if (
+        event.target.closest(
+          "input, textarea, select, [contenteditable='true']",
+        )
+      )
         return;
       event.preventDefault();
       var direction = event.key === "ArrowRight" ? 1 : -1;
@@ -879,6 +935,7 @@
     var resizeFrame;
     var animationFrame;
     var lastTimestamp;
+    var lastRenderTimestamp;
     var progress = 0;
     var radiusX = 0;
     var radiusY = 0;
@@ -919,7 +976,10 @@
           var baseFontSize = parseFloat(labelStyle.fontSize);
           var fittedFontSize = Math.max(
             8,
-            Math.min(baseFontSize, baseFontSize * (availableWidth / widestWord)),
+            Math.min(
+              baseFontSize,
+              baseFontSize * (availableWidth / widestWord),
+            ),
           );
 
           label.style.fontSize = fittedFontSize.toFixed(2) + "px";
@@ -928,12 +988,11 @@
       radiusX =
         Math.max(0, (windowElement.clientWidth - cardWidth) / 2) *
         parseFloat(
-          window.getComputedStyle(windowElement).getPropertyValue("--arc-radius-x"),
+          window
+            .getComputedStyle(windowElement)
+            .getPropertyValue("--arc-radius-x"),
         );
-      radiusY = Math.max(
-        0,
-        (windowElement.clientHeight - cardHeight) / 2 - 8,
-      );
+      radiusY = Math.max(0, (windowElement.clientHeight - cardHeight) / 2 - 8);
       positionCards(progress);
     }
 
@@ -966,10 +1025,7 @@
           "--carousel-scale",
           (0.94 + depth * 0.06).toFixed(3),
         );
-        card.style.setProperty(
-          "--carousel-opacity",
-          opacity.toFixed(3),
-        );
+        card.style.setProperty("--carousel-opacity", opacity.toFixed(3));
       });
     }
 
@@ -997,12 +1053,20 @@
       animationFrame = undefined;
       if (!canAnimate()) {
         lastTimestamp = undefined;
+        lastRenderTimestamp = undefined;
+        return;
+      }
+
+      if (lastRenderTimestamp === undefined) lastRenderTimestamp = timestamp;
+      if (timestamp - lastRenderTimestamp < 1000 / 30) {
+        animationFrame = window.requestAnimationFrame(animateCarousel);
         return;
       }
 
       if (lastTimestamp === undefined) lastTimestamp = timestamp;
       var elapsed = Math.min(timestamp - lastTimestamp, 64);
       lastTimestamp = timestamp;
+      lastRenderTimestamp = timestamp;
       progress = (progress + elapsed / 78000) % 1;
       positionCards(progress);
       animationFrame = window.requestAnimationFrame(animateCarousel);
@@ -1013,6 +1077,7 @@
         window.cancelAnimationFrame(animationFrame);
         animationFrame = undefined;
         lastTimestamp = undefined;
+        lastRenderTimestamp = undefined;
         return;
       }
 
