@@ -581,7 +581,6 @@
           "CSS",
           "JavaScript",
           "CSV",
-          "KPI",
           "Data Visualization",
           "Interactive Filters",
         ],
@@ -999,7 +998,6 @@
     function positionCards(currentProgress) {
       if (window.innerWidth <= 720) return;
 
-      // Distribute cards along the upper half of a wide ellipse.
       cards.forEach(function (card, index) {
         var position = (index / cards.length + currentProgress) % 1;
         var angle = position * Math.PI;
