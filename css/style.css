@@ -1547,10 +1547,6 @@ body.is-dark .project__img-wrap {
   }
 }
 
-/* ============================================================
-   RESPONSIVE — Mobile 480px
-   ============================================================ */
-
 @media screen and (max-width: 480px) {
   .hero-title {
     font-size: clamp(44px, 13vw, 72px);
@@ -1574,10 +1570,6 @@ body.is-dark .project__img-wrap {
   }
 }
 
-/* ============================================================
-   RESPONSIVE — Mobile 375px
-   ============================================================ */
-
 @media screen and (max-width: 375px) {
   .hero-title {
     font-size: clamp(38px, 12.5vw, 60px);
@@ -1596,14 +1588,6 @@ body.is-dark .project__img-wrap {
     font-size: clamp(30px, 9vw, 52px);
   }
 }
-
-/* ============================================================
-   MICRO-ANIMATION — Hero Entrance Sequence
-   CSS-only, no JavaScript needed.
-   prefers-reduced-motion respected.
-   ============================================================ */
-
-/* --- Keyframes --- */
 
 @keyframes fadeSlideDown {
   from {
@@ -1651,8 +1635,6 @@ body.is-dark .project__img-wrap {
   }
 }
 
-/* --- Base: semua elemen mulai invisible --- */
-
 .animate-cornelius,
 .animate-photo,
 .animate-role-left,
@@ -1660,44 +1642,30 @@ body.is-dark .project__img-wrap {
 .animate-name,
 .animate-button {
   opacity: 0;
-  /* Akan diisi oleh animation shorthand di bawah */
 }
 
-/* STEP 1 — CORNELIUS: fade + slide dari atas */
 .animate-cornelius {
   animation: fadeSlideDown 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0s forwards;
 }
-
-/* STEP 2 — Foto: fade + slide dari bawah */
 .animate-photo {
   animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
 }
-
-/* STEP 3a — Role kiri: fade + slight up */
 .animate-role-left {
   animation:
     fadeSlideUpSm 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards,
     floatA 8s ease-in-out 1.4s infinite;
 }
-
-/* STEP 3b — Role kanan: fade + slight up, sedikit delay lebih */
 .animate-role-right {
   animation:
     fadeSlideUpSm 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.72s forwards,
     floatC 7s ease-in-out 4s infinite;
 }
-
-/* STEP 4 — ADYATMA SATYA */
 .animate-name {
   animation: fadeSlideUpSm 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
 }
-
-/* STEP 5 — Button PORTOFOLIO */
 .animate-button {
   animation: fadeSlideUpSm 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.1s forwards;
 }
-
-/* --- Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
   .animate-cornelius,
   .animate-photo,
@@ -1709,19 +1677,12 @@ body.is-dark .project__img-wrap {
   }
 }
 
-/* ============================================================
-   PROJECTS SECTION — Editorial layout
-   Konsisten dengan visual language Hero.
-   ============================================================ */
-
 .projects {
   min-height: 100vh;
   background-color: var(--page);
   padding: 0 6vw 10vh;
   overflow-x: hidden;
 }
-
-/* ── Intro / Transition ──────────────────────────────────── */
 
 .projects-intro {
   display: flex;
@@ -1751,8 +1712,6 @@ body.is-dark .project__img-wrap {
   padding-bottom: 0.3em;
 }
 
-/* ── Section Heading ─────────────────────────────────────── */
-
 .projects-heading {
   margin-bottom: 6vh;
 }
@@ -1763,12 +1722,9 @@ body.is-dark .project__img-wrap {
   color: var(--accent);
   line-height: 0.88;
   letter-spacing: -0.02em;
-  /* Subtle underline — editorial style */
   border-bottom: 2px solid rgba(var(--accent-rgb), 0.15);
   padding-bottom: 0.2em;
 }
-
-/* ── Featured Project ────────────────────────────────────── */
 
 .project--featured {
   --featured-card-bg: #e9631a;
@@ -1847,8 +1803,6 @@ body.is-dark .project--featured {
   letter-spacing: 0.12em;
   opacity: 0.6;
 }
-
-/* Featured body: info kiri, preview kanan */
 .project__body {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
@@ -1970,8 +1924,6 @@ body.is-dark .project--featured {
   letter-spacing: 0.15em;
   opacity: 0.3;
 }
-
-/* ── Project List (02, 03, 04) ───────────────────────────── */
 
 .project-list {
   display: grid;
@@ -2128,17 +2080,11 @@ body.is-dark .project-item:hover {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
-
-/* ── PROJECTS Responsive ─────────────────────────────────── */
-
-/* 1280px */
 @media screen and (max-width: 1280px) {
   .project__body {
     grid-template-columns: 1fr 1.4fr;
   }
 }
-
-/* 1024px */
 @media screen and (max-width: 1024px) {
   .projects {
     padding: 0 5vw 8vh;

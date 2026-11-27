@@ -1092,8 +1092,6 @@
       resizeObserver.observe(windowElement);
       resizeObserver.observe(cards[0]);
     }
-
-    // Pause only while a card itself is hovered or explicitly tapped.
     cards.forEach(function (card) {
       card.addEventListener("pointerenter", function (event) {
         if (event.pointerType === "touch") return;
